@@ -1,5 +1,5 @@
 import Yup from "yup";
-const addUserValidationSchema = Yup.object({
+export const addUserValidationSchema = Yup.object({
   firstName: Yup.string()
     .required()
     .trim()
@@ -18,4 +18,14 @@ const addUserValidationSchema = Yup.object({
     .max(30, "Password must be at max 30 characters"),
 });
 
-export default addUserValidationSchema;
+//?====login user validation schema====
+
+export const loginUserValidationSchema = Yup.object({
+  email: Yup.string()
+    .required("Email is required")
+    .email("Invalid email")
+    .max(65, "Email must be at max 65 characters")
+    .trim()
+    .lowercase(),
+  password: Yup.string().required("Password is required").trim(),
+});
