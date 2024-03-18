@@ -1,7 +1,7 @@
 import express from "express";
 import connectDB from "./connect.db.js";
 import userRouter from "./user/user.route.js";
-import User from "./user/user.model.js";
+import productRouter from "./product/product.route.js";
 
 const app = express();
 
@@ -14,6 +14,7 @@ connectDB();
 
 //?====register routes===
 app.use(userRouter);
+app.use(productRouter);
 
 //?server and port allocation
 
